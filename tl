@@ -68,7 +68,7 @@ END(){
 
 # Args in line =)
 case $1 in
-    *|help) USAGE; exit 0 ;;
+    help) USAGE; exit 0 ;;
     add)
       shift
       test -z "$@" 2> /dev/null && { printf '%s\n' "Need a task bro."; exit 1 ;}
