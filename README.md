@@ -6,7 +6,7 @@ A simple text plain file is created in your $HOME/.todo.txt
 And is manipulated with some tools like grep/sed, tl written in Shell Posix.
 
 ## Why?
-I was tired of using more "complex" software like todo.txt. I wanted something very simple, that followed the KISS and UNIX philosophy.
+I was tired of using more "complex" software like todo.txt. I wanted something very simple, that followed the KISS and UNIX philosophy. Written in 50 lines, removing comments and blank lines.
 
 ## USE
 Add ***tl*** script to /usr/bin/tl and give execute permission, ***chmod +x tl***.
