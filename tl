@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/dash
+
 ######################################################################
 # AUTHOR  : Jefferson 'Slackjeff' Carneiro
 # EMAIL   : jeffersoncarneiro@slackjeff.com.br
@@ -7,17 +8,20 @@
 #           simple plain text file. Located at your home. WRITE POSIX
 #           SHELL.
 # LICENSE : GPLv2
+#
+# ShellCheck [OK]
+# https://www.shellcheck.net/wiki/SC2124
 ######################################################################
 
 #=================== VARS
-PRG="$(basename $0)"
+PRG="$(basename "$0")"
 VERSION='1.0'
 todo="${HOME}/.todo.txt"
 fgr='\033[31;1m'
 fgb='\033[34;1m'
 fgend='\033[m'
 #=================== TEST
-test ! -e "$todo" && > "$todo"
+test ! -e "$todo" && true> "$todo" # Dont exist?
 
 #=================== FUNCTIONS
 USAGE(){ # Help
@@ -37,7 +41,7 @@ EOF
 }
 
 SEND(){ # Send to todo.txt
-    local receive="$@"
+    receive="$@"
 
     # Send arg for todo.txt in HOME.
     printf '%s\n' "$receive" >> "$todo"
@@ -45,21 +49,21 @@ SEND(){ # Send to todo.txt
 }
 
 SHOW(){ # Show all todo.txt
-    local symbol="▶"
-    while IFS= read _line_; do
+    symbol='▶'
+    while IFS= read -r _line_; do
        printf '%b\n' "${fgb}${symbol}${fgend} $_line_"
     done < "$todo"
     return 0
 }
 
 END(){
-    local arg="$@"
-    local temp="${todo}.tmp"
+    arg="$@"
+    temp="${todo}.tmp"
 
     # Search task and test if exist.
-    local arg_test=$(grep "$arg" "$todo")
+    arg_test=$(grep "$arg" "$todo")
     [ -z "$arg_test" ] && { printf '%b\n' "${fgr}No task found...${fgend}";exit 1 ;}
-    if sed "/$arg/d" "$todo" > $temp; then
+    if sed "/$arg/d" "$todo" > "$temp"; then
        mv "$temp" "$todo" > /dev/null 2> /dev/null
        printf "%b\n" "Task Number: ${fgb}[$arg]${fgend} END."
        return 0
