@@ -1,6 +1,6 @@
 # tl
 
-![Shellcheck](https://github.com/slackjeff/tl/workflows/Shellcheck/badge.svg)
+![Shellcheck](https://www.codetriage.com/koalaman/shellcheck/badges/users.svg)
 
 ## DESC
 This is a small script that follows UNIX laws. Do one thing and do it well.
