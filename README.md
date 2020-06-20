@@ -1,5 +1,7 @@
 # tl
 
+![Shellcheck](https://github.com/slackjeff/tl/workflows/Shellcheck/badge.svg)
+
 ## DESC
 This is a small script that follows UNIX laws. Do one thing and do it well.
 A simple text plain file is created in your $HOME/.todo.txt
