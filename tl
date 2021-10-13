@@ -70,6 +70,7 @@ END(){
     fi
 }
 
+[ -z "$1" ] && USAGE
 # Args in line =)
 case $1 in
     help) USAGE; exit 0 ;;
