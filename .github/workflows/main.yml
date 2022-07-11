@@ -1,11 +1,16 @@
 name: Shellcheck
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
 
 jobs:
-  build:
-
-    runs-on: slackware
+  code:
+    name: Tests and ubuntu
+    runs-on: ubuntu-latest
 
     steps:
     - uses: ludeeus/action-shellcheck@0.2.1
